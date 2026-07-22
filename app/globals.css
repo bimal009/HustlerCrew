@@ -2,25 +2,229 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --surface: #f2f2f2;
+  --surface-dark: #141414;
+  --foreground: #0d0d0d;
+  --muted: #6b6b6b;
+  --accent: #690000;
+  --accent-bright: #b32b2b;
+  --line: rgba(13, 13, 13, 0.1);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-line: var(--line);
+  --font-display: var(--font-bebas);
+  --font-sans: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.font-display {
+  font-family: var(--font-bebas), sans-serif;
+  letter-spacing: 0.015em;
+}
+
+.section-shell {
+  width: 100%;
+  max-width: 74rem;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 768px) {
+  .section-shell {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Eyebrow label above section titles */
+.kicker {
+  --kicker-color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--kicker-color);
+}
+.kicker::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: var(--kicker-color);
+  opacity: 0.55;
+}
+/* On dark surfaces, --accent (#690000) is too dark to read — use the bright variant */
+.kicker-on-dark {
+  --kicker-color: var(--accent-bright);
+}
+
+.kicker-center {
+  display: block;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Primary: solid black pill */
+.btn-dark {
+  display: inline-block;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: #ffffff;
+  padding: 0.875rem 1.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease;
+}
+.btn-dark:hover {
+  background: var(--accent);
+}
+
+/* Secondary: outline pill */
+.btn-outline {
+  display: inline-block;
+  border-radius: 999px;
+  border: 1px solid rgba(13, 13, 13, 0.22);
+  color: var(--foreground);
+  padding: 0.875rem 1.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.btn-outline:hover {
+  border-color: rgba(13, 13, 13, 0.45);
+}
+
+/* Small white pill for text sitting on top of photos */
+.pill-on-image {
+  display: inline-block;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0d0d0d;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+.pill-on-image:hover {
+  background: #ffffff;
+}
+
+/* Journey timeline: items fade/slide in as the scroll-drawn line reaches
+   them. Only opts into the hidden starting state once JS has actually
+   mounted (.jt-enhanced) — with no JS, everything stays visible. */
+.jt-enhanced .journey-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.journey-item.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+.journey-item.is-revealed .node-dot:not(.node-dot--upcoming) {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.journey-item.is-revealed .node-dot--upcoming {
+  border-color: var(--muted);
+}
+
+/* Team marquee: an infinite horizontal scroll, paused on hover so a flipped
+   card doesn't slide away while being read. */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee-scroll 36s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Flip card: front/back faces of a player card, toggled by hover or focus. */
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-visible .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-face {
+  backface-visibility: hidden;
+}
+.flip-card-face--back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* The team marquee is a deliberate, continuous brand showcase rather than
+     an incidental UI transition — keep it looping regardless of the generic
+     rule above, and never show a fallback scrollbar for it. */
+  .marquee-track {
+    animation-duration: 36s !important;
+    animation-iteration-count: infinite !important;
+  }
+  .marquee-viewport {
+    overflow-x: hidden !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b8b8b8;
 }
