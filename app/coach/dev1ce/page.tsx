@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Navbar } from "../../components/Navbar";
 import { Footer } from "../../components/Footer";
 import {
@@ -7,6 +8,7 @@ import {
   dev1ceProfile,
   dev1ceResultsByOrg,
   dev1ceSkills,
+  gmailComposeUrl,
   siteEmail,
 } from "../../lib/data";
 
@@ -50,9 +52,9 @@ export default function Dev1ceCVPage() {
             <p className="mt-5 max-w-2xl leading-relaxed text-muted">{dev1ceProfile.summary}</p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="/#contact" className="btn-dark">
+              <Link href="/#contact" className="btn-dark">
                 Book Through Hustler Crew
-              </a>
+              </Link>
             </div>
             <p className="mt-3 text-xs text-muted">
               Coaching sessions are booked through Hustler Crew, not Dev1ce directly.
@@ -183,7 +185,9 @@ export default function Dev1ceCVPage() {
               </p>
             </div>
             <a
-              href={`mailto:${siteEmail}`}
+              href={gmailComposeUrl(siteEmail)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#0d0d0d] transition-colors duration-200 hover:bg-white/90"
             >
               {siteEmail}

@@ -2,6 +2,11 @@
 
 export const siteEmail = "contact@hustlercrew.com";
 
+/** Opens a Gmail compose window in the browser instead of the OS default mail app. */
+export function gmailComposeUrl(to: string) {
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(to)}`;
+}
+
 export type Player = {
   id: string;
   name: string;
@@ -116,21 +121,8 @@ export const milestones: Milestone[] = [
     location: "Nepal",
     description: "Riwaj Gurung (\"Reyes\") founds the organization that becomes Hustler Crew.",
   },
-  {
-    id: "gods-gang-2024",
-    year: "2024",
-    title: "Gods Gang Pro Series Season 3",
-    location: "C-Tier",
-    description: "16th place — the squad's first tracked competitive result.",
-  },
-  {
-    id: "grind-2025",
-    year: "2025",
-    title: "Community & Pro League Circuit",
-    location: "D-Tier",
-    description:
-      "19th at zero eSport PUBG Mobile Community Series, then 10th at BigPlay Pro League #101 Season 10.",
-  },
+
+
   {
     id: "rebrand-2026",
     year: "2026",
@@ -164,6 +156,16 @@ export type Service = {
 
 export const services: Service[] = [
   {
+    id: "coaching",
+    title: "Esports Coaching",
+    description: "Bookable competitive PUBG Mobile coaching sessions with Dev1ce.",
+  },
+    {
+    id: "tournament-production",
+    title: "Tournament Production",
+    description: "End-to-end event production brackets, casting and live show operations.",
+  },
+  {
     id: "jersey-design",
     title: "Jersey Design",
     description:
@@ -189,6 +191,7 @@ export const services: Service[] = [
     title: "Motion Graphics",
     description: "Kinetic typography, intros, stingers and animated overlays.",
   },
+
   {
     id: "web-development",
     title: "Website Development",
@@ -200,17 +203,12 @@ export const services: Service[] = [
     description: "Mobile apps designed and built for engagement.",
   },
   {
-    id: "coaching",
-    title: "Esports Coaching",
-    description: "Bookable competitive PUBG Mobile coaching sessions with Dev1ce.",
+    id: "custom-software",
+    title: "Custom Software Solutions",
+    description: "Bespoke tools and platforms built around your workflow.",
   },
 ];
 
-// Dev1ce (Dinesh Roka Magar) is a separate, bookable coach offered through
-// Hustler Crew's services — not the team's own Head Coach (that's Trix).
-// All data below comes from his own CV, which he supplied directly.
-// Bookings go through Hustler Crew, not Dev1ce directly — no personal
-// contact details are published here.
 export const dev1ceProfile = {
   name: "Dinesh Roka Magar",
   tag: "Dev1ce",

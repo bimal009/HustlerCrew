@@ -5,7 +5,14 @@ import { Footer } from "./components/Footer";
 import { JerseySection } from "./components/JerseySection";
 import { JourneyTimeline } from "./components/JourneyTimeline";
 import { TeamMarquee } from "./components/team/TeamMarquee";
-import { dev1ceAchievements, milestones, players, services, siteEmail } from "./lib/data";
+import {
+  dev1ceAchievements,
+  gmailComposeUrl,
+  milestones,
+  players,
+  services,
+  siteEmail,
+} from "./lib/data";
 
 function SectionHeader({ kicker, title }: { kicker: string; title: string }) {
   return (
@@ -65,6 +72,14 @@ function ServiceIcon({ id }: { id: string }) {
           <circle cx="15" cy="12" r="2.4" />
         </svg>
       );
+    case "tournament-production":
+      return (
+        <svg {...common}>
+          <rect x="4" y="14" width="4" height="6" />
+          <rect x="10" y="10" width="4" height="10" />
+          <rect x="16" y="16" width="4" height="4" />
+        </svg>
+      );
     case "web-development":
       return (
         <svg {...common}>
@@ -77,6 +92,12 @@ function ServiceIcon({ id }: { id: string }) {
         <svg {...common}>
           <rect x="8" y="3" width="8" height="18" rx="2" />
           <path d="M11 18h2" />
+        </svg>
+      );
+    case "custom-software":
+      return (
+        <svg {...common}>
+          <path d="M8 6 3 12l5 6M16 6l5 6-5 6M14 4l-4 16" />
         </svg>
       );
     default:
@@ -185,7 +206,7 @@ export default function Home() {
             {[
               ["Roster", "5 Athletes + Head Coach"],
               ["On the calendar", "PUBG MOBILE Global Open 2026"],
-              ["Base", "Kathmandu, Nepal"],
+              ["Base", "Dharan, Nepal"],
             ].map(([label, value]) => (
               <div key={label} className="flex flex-col gap-1 py-6 sm:px-8 sm:first:pl-0 sm:last:pr-0">
                 <dt className="text-xs font-semibold tracking-[0.22em] text-muted uppercase">{label}</dt>
@@ -199,7 +220,6 @@ export default function Home() {
         <section id="team" className="scroll-mt-20 py-24 md:py-32" aria-label="Team roster">
           <div className="section-shell">
             <SectionHeader kicker="The Roster" title="Meet the Team" />
-            <p className="mb-8 text-sm text-muted">Hover or focus a card to flip it.</p>
           </div>
           <TeamMarquee players={players} />
         </section>
@@ -360,11 +380,13 @@ export default function Home() {
                 Let&apos;s talk.
               </h2>
               <p className="mt-5 max-w-md leading-relaxed text-white/60">
-                Sponsorships, services, scrims or coaching — the lobby is open.
+                Sponsorships, services, scrims or coaching the lobby is open.
               </p>
             </div>
             <a
-              href={`mailto:${siteEmail}`}
+              href={gmailComposeUrl(siteEmail)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-[#0d0d0d] transition-colors duration-200 hover:bg-white/90"
             >
               {siteEmail}
