@@ -8,7 +8,7 @@ const GRADIENTS = [
 ];
 
 function roleLabel(role: string) {
-  return role === "Head Coach" ? "Coach" : "Athlete";
+  return role === "Team Coach" ? "Coach" : "Athlete";
 }
 
 function FlipCard({

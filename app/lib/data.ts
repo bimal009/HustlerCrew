@@ -52,14 +52,36 @@ export const players: Player[] = [
     image: "/aazzmmm.PNG",
     bio: "Competitive PUBG Mobile athlete and core member of Hustler Crew's roster.",
   },
-  {
-    id: "trix",
-    name: "Trix",
-    role: "Head Coach",
-    image: "/trix.png",
-    bio: "Runs Hustler Crew's in-house preparation — rotations, drop plans and endgame execution.",
-  },
 ];
+
+export type CoachHighlight = {
+  id: string;
+  placement: string;
+  event: string;
+};
+
+// Trix is Hustler Crew's own Team Coach (not Dev1ce, the bookable outside
+// coach). Achievements are the team's real results under his tenure —
+// see https://liquipedia.net/pubgmobile/Hustler_Crew
+export const teamCoach = {
+  id: "trix",
+  name: "Trix",
+  role: "Team Coach",
+  image: "/trix.png",
+  bio: "Runs Hustler Crew's in-house preparation — rotations, drop plans and endgame execution.",
+  achievements: [
+    {
+      id: "pmgo-weu-2026",
+      placement: "1st",
+      event: "PMGO 2026 Season 1 Western Europe Finals — Champions",
+    },
+    {
+      id: "pmgo-main-2026",
+      placement: "32nd",
+      event: "PMGO 2026 Season 1 Main Event",
+    },
+  ] satisfies CoachHighlight[],
+};
 
 export type Jersey = {
   id: string;
@@ -144,7 +166,7 @@ export const milestones: Milestone[] = [
     title: "PUBG Mobile Global Open 2026",
     location: "S-Tier",
     description:
-      "31st–32nd place on the international stage — Hustler Crew's biggest tournament to date.",
+      "32nd place on the international stage — Hustler Crew's biggest tournament to date.",
   },
 ];
 

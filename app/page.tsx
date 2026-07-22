@@ -12,6 +12,7 @@ import {
   players,
   services,
   siteEmail,
+  teamCoach,
 } from "./lib/data";
 
 function SectionHeader({ kicker, title }: { kicker: string; title: string }) {
@@ -191,7 +192,7 @@ export default function Home() {
                     </span>
                     <p className="min-w-0 flex-1 truncate text-sm font-semibold">{p.name}</p>
                     <span className="text-[10px] font-semibold tracking-[0.1em] text-muted uppercase">
-                      {p.role === "Head Coach" ? "Coach" : "Athlete"}
+                      {p.role === "Team Coach" ? "Coach" : "Athlete"}
                     </span>
                   </li>
                 ))}
@@ -204,7 +205,7 @@ export default function Home() {
         <div className="mt-2 border-b border-line">
           <dl className="section-shell grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {[
-              ["Roster", "5 Athletes + Head Coach"],
+              ["Roster", "5 Athletes + Team Coach"],
               ["On the calendar", "PUBG MOBILE Global Open 2026"],
               ["Base", "Dharan, Nepal"],
             ].map(([label, value]) => (
@@ -222,6 +223,46 @@ export default function Home() {
             <SectionHeader kicker="The Roster" title="Meet the Team" />
           </div>
           <TeamMarquee players={players} />
+        </section>
+
+        {/* Team Coach */}
+        <section
+          id="coach"
+          className="scroll-mt-20 border-t border-line bg-surface/60 py-24 md:py-32"
+          aria-label="Team Coach"
+        >
+          <div className="section-shell grid items-center gap-10 lg:grid-cols-[20rem_1fr] lg:gap-16">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface">
+              <Image
+                src={teamCoach.image}
+                alt={`${teamCoach.name} — ${teamCoach.role} of Hustler Crew`}
+                fill
+                sizes="(max-width: 1024px) 92vw, 20rem"
+                className="object-cover object-top"
+              />
+            </div>
+            <div>
+              <span className="kicker">Team Coach</span>
+              <h2 className="font-display mt-3 text-4xl tracking-wide md:text-5xl">
+                {teamCoach.name}
+              </h2>
+              <p className="mt-1 text-xs font-semibold tracking-[0.2em] text-muted uppercase">
+                {teamCoach.role}
+              </p>
+              <p className="mt-5 max-w-xl leading-relaxed text-muted">{teamCoach.bio}</p>
+
+              <ul className="mt-8 flex max-w-xl flex-col divide-y divide-line rounded-2xl bg-background px-6 shadow-sm">
+                {teamCoach.achievements.map((a) => (
+                  <li key={a.id} className="flex items-center gap-4 py-4">
+                    <span className="w-16 shrink-0 rounded-full border border-accent/30 py-1 text-center text-xs font-bold text-accent">
+                      {a.placement}
+                    </span>
+                    <p className="min-w-0 flex-1 text-sm font-semibold">{a.event}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </section>
 
         {/* Jerseys */}
@@ -293,7 +334,7 @@ export default function Home() {
                 Coaching with <span className="text-accent">Dev1ce</span>
               </h2>
               <p className="mt-5 max-w-xl leading-relaxed text-muted">
-                Alongside Head Coach Trix, who runs Hustler Crew&apos;s own preparation, the
+                Alongside Team Coach Trix, who runs Hustler Crew&apos;s own preparation, the
                 crew also offers bookable coaching sessions from Dev1ce a competitive PUBG
                 Mobile coach with a proven tournament record across multiple organizations.
               </p>
