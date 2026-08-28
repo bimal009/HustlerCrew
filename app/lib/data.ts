@@ -31,13 +31,7 @@ export const players: Player[] = [
     image: "/loco.PNG",
     bio: "Competitive PUBG Mobile athlete representing Hustler Crew across South Asia.",
   },
-  {
-    id: "kal3y",
-    name: "Kal3y",
-    role: "PUBG Mobile Athlete",
-    image: "/kal3y.PNG",
-    bio: "Competitive PUBG Mobile athlete and core member of Hustler Crew's roster.",
-  },
+
   {
     id: "jmson",
     name: "Jmson",
@@ -134,23 +128,22 @@ export type Milestone = {
   upcoming?: boolean;
 };
 
-// Real, sourced results — see https://liquipedia.net/pubgmobile/Hustler_Crew
 export const milestones: Milestone[] = [
   {
     id: "founded",
     year: "2024",
     title: "Founded as Hatyara Crew",
     location: "Nepal",
-    description: "Riwaj Gurung (\"Reyes\") founds the organization that becomes Hustler Crew.",
+    description:
+      'Riwaj Gurung ("Reyes") founded the organization that would become Hustler Crew.',
   },
-
-
   {
     id: "rebrand-2026",
     year: "2026",
-    title: "Rebrands to Hustler Crew",
+    title: "Rebranded to Hustler Crew",
     location: "UK & Nepal",
-    description: "Hatyara Crew becomes Hustler Crew as the current roster forms.",
+    description:
+      "Hatyara Crew rebranded to Hustler Crew as the current roster was formed.",
   },
   {
     id: "pmgo-weu-finals-2026",
@@ -158,7 +151,7 @@ export const milestones: Milestone[] = [
     title: "PMGO Western Europe Finals — Champions",
     location: "A-Tier",
     description:
-      "1st place at the PMGO 2026 Season 1 Western Europe Finals. Loco named Finals MVP and Top Fragger.",
+      "Finished 1st at the PMGO 2026 Season 1 Western Europe Finals, with Loco named Finals MVP and Top Fragger.",
   },
   {
     id: "global-open-2026",
@@ -166,7 +159,15 @@ export const milestones: Milestone[] = [
     title: "PUBG Mobile Global Open 2026",
     location: "S-Tier",
     description:
-      "32nd place on the international stage — Hustler Crew's biggest tournament to date.",
+      "Finished 32nd on the international stage at the PUBG Mobile Global Open 2026 — Hustler Crew's biggest tournament to date.",
+  },
+  {
+    id: "esports-world-cup-2026",
+    year: "2026",
+    title: "Esports World Cup 2026",
+    location: "S-Tier",
+    description:
+      "Finished 32nd at the Esports World Cup 2026, marking another major international appearance for Hustler Crew.",
   },
 ];
 
