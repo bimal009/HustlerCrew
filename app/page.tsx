@@ -122,26 +122,30 @@ export default function Home() {
           aria-label="Hustler Crew — professional PUBG Mobile esports organization"
         >
           <div className="section-shell grid gap-4 md:grid-cols-3">
-            {/* Main hero card */}
-            <div className="relative min-h-[26rem] overflow-hidden rounded-2xl bg-surface-dark md:col-span-2 md:min-h-[30rem]">
-              <Image
-                src="/hero.JPG"
-                alt="The Hustler Crew roster at the PUBG MOBILE Global Open"
-                fill
-                priority
-                sizes="(max-width: 768px) 100vw, 66vw"
-                className="object-cover object-center"
-              />
+            {/* Main hero card — image stacks above the copy on mobile, copy overlays the image from md up */}
+            <div className="relative flex flex-col overflow-hidden rounded-2xl bg-surface-dark md:col-span-2 md:min-h-[30rem] md:justify-end">
+              {/* Media */}
+              <div className="relative aspect-video w-full md:absolute md:inset-0 md:aspect-auto md:h-full">
+                <Image
+                  src="/hero.JPG"
+                  alt="The Hustler Crew roster at the PUBG MOBILE Global Open"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  className="object-cover object-[center_30%]"
+                />
 
-              {/* Gradient scrim — tall and dark enough to guarantee contrast under the full text block */}
-              <div
-                aria-hidden
-                className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black from-15% via-black/70 via-60% to-transparent md:h-72"
-              />
+                {/* Gradient scrim — only needed where the copy overlaps the image (md and up) */}
+                <div
+                  aria-hidden
+                  className="absolute inset-x-0 bottom-0 hidden h-72 bg-gradient-to-t from-black from-15% via-black/70 via-60% to-transparent md:block"
+                />
+              </div>
 
-              <div className="relative flex h-full flex-col justify-end p-6 text-white md:p-10">
+              {/* Copy */}
+              <div className="relative p-6 text-white md:p-10">
                 <h1
-                  className="font-display max-w-lg text-4xl leading-[0.95] tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] md:text-5xl"
+                  className="font-display max-w-lg text-3xl leading-[0.95] tracking-wide sm:text-4xl md:text-5xl md:drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]"
                 >
                   Built on grind. Headed for the{" "}
                   <span className="text-accent-bright">world stage.</span>
@@ -206,8 +210,8 @@ export default function Home() {
           <dl className="section-shell grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {[
               ["Roster", "5 Athletes + Team Coach"],
-              ["On the calendar", "PUBG MOBILE Global Open 2026"],
-              ["Base", "Dharan, Nepal"],
+                ["On the calendar", "PUBG MOBILE GLOBAL OPEN S2"],
+            ["Base", "United Kingdom"]
             ].map(([label, value]) => (
               <div key={label} className="flex flex-col gap-1 py-6 sm:px-8 sm:first:pl-0 sm:last:pr-0">
                 <dt className="text-xs font-semibold tracking-[0.22em] text-muted uppercase">{label}</dt>

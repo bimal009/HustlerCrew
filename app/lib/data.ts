@@ -46,6 +46,13 @@ export const players: Player[] = [
     image: "/aazzmmm.PNG",
     bio: "Competitive PUBG Mobile athlete and core member of Hustler Crew's roster.",
   },
+  {
+    id: "kc",
+    name: "KC",
+    role: "PUBG Mobile Athlete",
+    image: "/kc.PNG",
+    bio: "Free Man and Assaulter — Hustler Crew's entry fragger, opening fights and holding aggressive space.",
+  },
 ];
 
 export type CoachHighlight = {
