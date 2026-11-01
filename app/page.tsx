@@ -127,12 +127,12 @@ export default function Home() {
               {/* Media */}
               <div className="relative aspect-video w-full md:absolute md:inset-0 md:aspect-auto md:h-full">
                 <Image
-                  src="/og-image.png"
-                  alt="The Hustler Crew roster at the PUBG MOBILE Global Open"
+                  src="/logo.png"
+                  alt="Hustler Crew logo"
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 66vw"
-                  className="object-cover object-[center_30%]"
+                  className="object-contain object-center"
                 />
 
                 {/* Gradient scrim — only needed where the copy overlaps the image (md and up) */}

@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og-image.png",
-        width: 1671,
-        height: 941,
-        alt: "Hustler Crew at the PUBG Mobile Global Open",
+        url: "/logo.png",
+        width: 2748,
+        height: 4293,
+        alt: "Hustler Crew logo",
       },
     ],
   },
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og-image.png"],
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
