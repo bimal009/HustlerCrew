@@ -18,12 +18,12 @@ export function Footer() {
           <p className="text-xs text-muted">
             Site managed by{" "}
             <a
-              href="https://www.chautari.tech/"
+              href="https://www.chautarilabs.tech/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-foreground transition-colors duration-200 hover:text-accent"
             >
-              Chautari Tech
+              Chautari Labs
             </a>
           </p>
         </div>

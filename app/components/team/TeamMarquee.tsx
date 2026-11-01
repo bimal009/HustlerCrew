@@ -37,8 +37,11 @@ function FlipCard({
             src={player.image}
             alt={hidden ? "" : `${player.name} — ${roleLabel(player.role)} at Hustler Crew`}
             fill
-            sizes="256px"
-            className="object-cover object-top opacity-95"
+            // Square portraits cover a 352px-tall card, so request enough
+            // resolution for the crop as well as high-density displays.
+            sizes="352px"
+            quality={90}
+            className="object-cover object-top"
           />
           <div
             aria-hidden

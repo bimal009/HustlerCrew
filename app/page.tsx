@@ -127,7 +127,7 @@ export default function Home() {
               {/* Media */}
               <div className="relative aspect-video w-full md:absolute md:inset-0 md:aspect-auto md:h-full">
                 <Image
-                  src="/hero.JPG"
+                  src="/og-image.png"
                   alt="The Hustler Crew roster at the PUBG MOBILE Global Open"
                   fill
                   priority
@@ -261,7 +261,12 @@ export default function Home() {
                     <span className="w-16 shrink-0 rounded-full border border-accent/30 py-1 text-center text-xs font-bold text-accent">
                       {a.placement}
                     </span>
-                    <p className="min-w-0 flex-1 text-sm font-semibold">{a.event}</p>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-semibold">{a.event}</p>
+                      <span className="mt-1 inline-block text-xs font-semibold text-accent">
+                        {a.tier}
+                      </span>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -297,6 +302,18 @@ export default function Home() {
               <Link href="/#contact" className="btn-dark mt-8 inline-block">
                 Get In Touch
               </Link>
+              <p className="mt-5 text-sm text-muted">
+                Visit{" "}
+                <a
+                  href="https://www.chautarilabs.tech/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-foreground underline underline-offset-4 transition-colors duration-200 hover:text-accent"
+                >
+                  Chautari Labs
+                </a>
+                , our website management team.
+              </p>
             </div>
 
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5 lg:col-span-8">

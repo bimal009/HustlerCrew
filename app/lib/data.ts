@@ -21,14 +21,14 @@ export const players: Player[] = [
     id: "vinnie",
     name: "Vinnie",
     role: "PUBG Mobile Athlete",
-    image: "/vinnie.PNG",
+    image: "/player-vinnie.png",
     bio: "Competitive PUBG Mobile athlete and core member of Hustler Crew's roster.",
   },
   {
     id: "loco",
     name: "Loco",
     role: "PUBG Mobile Athlete",
-    image: "/loco.PNG",
+    image: "/player-loco.png",
     bio: "Competitive PUBG Mobile athlete representing Hustler Crew across South Asia.",
   },
 
@@ -36,21 +36,21 @@ export const players: Player[] = [
     id: "jmson",
     name: "Jmson",
     role: "PUBG Mobile Athlete",
-    image: "/jmson.PNG",
+    image: "/player-jmson.png",
     bio: "Competitive PUBG Mobile athlete representing Hustler Crew across South Asia.",
   },
   {
     id: "aazzmmm",
     name: "Aazzmmm",
     role: "PUBG Mobile Athlete",
-    image: "/aazzmmm.PNG",
+    image: "/player-aazzmmm.png",
     bio: "Competitive PUBG Mobile athlete and core member of Hustler Crew's roster.",
   },
   {
     id: "kc",
     name: "KC",
     role: "PUBG Mobile Athlete",
-    image: "/kc.PNG",
+    image: "/player-kc.png",
     bio: "Free Man and Assaulter — Hustler Crew's entry fragger, opening fights and holding aggressive space.",
   },
 ];
@@ -59,11 +59,12 @@ export type CoachHighlight = {
   id: string;
   placement: string;
   event: string;
+  tier: "A-Tier" | "S-Tier";
 };
 
 // Trix is Hustler Crew's own Team Coach (not Dev1ce, the bookable outside
-// coach). Achievements are the team's real results under his tenure —
-// see https://liquipedia.net/pubgmobile/Hustler_Crew
+// coach). Achievements list the team's A-Tier and S-Tier results —
+// see https://liquipedia.net/pubgmobile/Hustler_Crew/Results
 export const teamCoach = {
   id: "trix",
   name: "Trix",
@@ -72,14 +73,34 @@ export const teamCoach = {
   bio: "Runs Hustler Crew's in-house preparation — rotations, drop plans and endgame execution.",
   achievements: [
     {
-      id: "pmgo-weu-2026",
+      id: "pmgo-weu-2026-s1",
       placement: "1st",
       event: "PMGO 2026 Season 1 Western Europe Finals — Champions",
+      tier: "A-Tier",
     },
     {
-      id: "pmgo-main-2026",
-      placement: "32nd",
-      event: "PMGO 2026 Season 1 Main Event",
+      id: "pmgo-main-2026-s1",
+      placement: "31st–32nd",
+      event: "PMGO 2026 Season 1",
+      tier: "S-Tier",
+    },
+    {
+      id: "pmwc-2026",
+      placement: "31st–32nd",
+      event: "PUBG Mobile World Cup 2026",
+      tier: "S-Tier",
+    },
+    {
+      id: "pmgo-weu-2026-s2",
+      placement: "1st",
+      event: "PMGO 2026 Season 2 Western Europe Finals — Champions",
+      tier: "A-Tier",
+    },
+    {
+      id: "pmgo-main-2026-s2",
+      placement: "31st–32nd",
+      event: "PMGO 2026 Season 2",
+      tier: "S-Tier",
     },
   ] satisfies CoachHighlight[],
 };
@@ -153,28 +174,44 @@ export const milestones: Milestone[] = [
       "Hatyara Crew rebranded to Hustler Crew as the current roster was formed.",
   },
   {
-    id: "pmgo-weu-finals-2026",
+    id: "pmgo-weu-finals-2026-s1",
     year: "2026",
-    title: "PMGO Western Europe Finals — Champions",
+    title: "PMGO Season 1 Western Europe Finals — Champions",
     location: "A-Tier",
     description:
-      "Finished 1st at the PMGO 2026 Season 1 Western Europe Finals, with Loco named Finals MVP and Top Fragger.",
+      "Finished 1st at the PUBG Mobile Global Open 2026 Season 1 Western Europe Finals on May 10, 2026.",
   },
   {
-    id: "global-open-2026",
+    id: "global-open-2026-s1",
     year: "2026",
-    title: "PUBG Mobile Global Open 2026",
+    title: "PUBG Mobile Global Open 2026 Season 1",
     location: "S-Tier",
     description:
-      "Finished 32nd on the international stage at the PUBG Mobile Global Open 2026 — Hustler Crew's biggest tournament to date.",
+      "Finished 31st–32nd at the PUBG Mobile Global Open 2026 Season 1 on June 3, 2026.",
   },
   {
-    id: "esports-world-cup-2026",
+    id: "world-cup-2026",
     year: "2026",
-    title: "Esports World Cup 2026",
+    title: "PUBG Mobile World Cup 2026",
     location: "S-Tier",
     description:
-      "Finished 32nd at the Esports World Cup 2026, marking another major international appearance for Hustler Crew.",
+      "Finished 31st–32nd at the PUBG Mobile World Cup 2026 on August 9, 2026.",
+  },
+  {
+    id: "pmgo-weu-finals-2026-s2",
+    year: "2026",
+    title: "PMGO Season 2 Western Europe Finals — Champions",
+    location: "A-Tier",
+    description:
+      "Finished 1st at the PUBG Mobile Global Open 2026 Season 2 Western Europe Finals on September 20, 2026.",
+  },
+  {
+    id: "global-open-2026-s2",
+    year: "2026",
+    title: "PUBG Mobile Global Open 2026 Season 2",
+    location: "S-Tier",
+    description:
+      "Finished 31st–32nd at the PUBG Mobile Global Open 2026 Season 2 on October 20, 2026.",
   },
 ];
 
